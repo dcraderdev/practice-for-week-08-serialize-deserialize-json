@@ -31,11 +31,15 @@ const server = http.createServer((req, res) => {
     const resBody = {
       "Hello": "World!"
     };
-
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'application/JSON');
+    res.write(JSON.stringify(resBody))
+    console.log(JSON.stringify(resBody));
+    res.end()
     // Return the `resBody` object as JSON in the body of the response
   });
 });
 
-const port = 5000;
+const port = 5005;
 
 server.listen(port, () => console.log('Server is listening on port', port));
